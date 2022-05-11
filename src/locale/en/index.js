@@ -1,8 +1,8 @@
-import data from './data.json';
+const data = require('./data.json');
 
 data.PLUGIN_HELP = require('./help.md');
 
-export default {
+module.exports = {
   locale: 'en',
   data
 };

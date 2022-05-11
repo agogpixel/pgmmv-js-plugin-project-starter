@@ -1,12 +1,11 @@
 module.exports = {
-  preset: 'ts-jest',
   testEnvironment: 'node',
-  setupFiles: ['<rootDir>/test/setup.ts'],
-  setupFilesAfterEnv: ['<rootDir>/test/setup-after-env.ts'],
+  setupFiles: ['<rootDir>/test/setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/test/setup-after-env.js'],
   moduleNameMapper: {
     '\\.(md)$': '<rootDir>/test/mocks/file-mock.js'
   },
   verbose: true,
-  collectCoverageFrom: ['src/**/*.ts', '!src/pgmmv-entry.ts', '!src/**/index.ts'],
+  collectCoverageFrom: ['src/**/*.js', '!src/pgmmv-entry.js', '!src/**/index.js'],
   coverageReporters: ['text', 'text-summary', 'html']
 };

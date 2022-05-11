@@ -1,15 +1,14 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { iifeReturnMinify, IIFEReturnPlugin } = require('@agogpixel/pgmmv-webpack-support');
 const { resolve } = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const package = require('./package.json');
+const packageJson = require('./package.json');
 
 const nodeEnv = process.env.NODE_ENV;
 const isProd = nodeEnv === 'production';
 
-const pluginName = package.name.includes('/') ? package.name.split('/')[1] : package.name;
-const version = isProd ? package.version : `${package.version}-dev`;
+const pluginName = packageJson.name.includes('/') ? packageJson.name.split('/')[1] : packageJson.name;
+const version = isProd ? packageJson.version : `${packageJson.version}-dev`;
 
 const srcPath = resolve(__dirname, 'src');
 const distPath = resolve(__dirname, 'dist');
@@ -18,7 +17,7 @@ module.exports = {
   mode: isProd ? 'production' : 'development',
   devtool: false,
   entry: {
-    [`${pluginName}-${version}`]: `${srcPath}/pgmmv-entry.ts`
+    [`${pluginName}-${version}`]: `${srcPath}/pgmmv-entry.js`
   },
   output: {
     iife: true,
@@ -29,21 +28,13 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.js']
   },
   module: {
     rules: [
       {
-        test: /\.(ts|js)$/,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: {
-              configFile: 'tsconfig.build.json'
-            }
-          },
-          'source-map-loader'
-        ],
+        test: /\.js$/,
+        use: ['source-map-loader'],
         include: srcPath,
         exclude: /node_modules/
       },

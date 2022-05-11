@@ -1,6 +1,6 @@
-# agogpixel/pgmmv-ts-plugin-project-starter
+# agogpixel/pgmmv-js-plugin-project-starter
 
-Pixel Game Maker MV plugin project starter with TypeScript, webpack, & jest.
+Pixel Game Maker MV plugin project starter with JavaScript, webpack, & jest.
 
 <hr>
 
