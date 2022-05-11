@@ -8,7 +8,7 @@
     "ecmaFeatures": {
       "globalReturn": true
     },
-    "ecmaVersion": 2016
+    "ecmaVersion": 2015
   },
   "rules": {}
 }

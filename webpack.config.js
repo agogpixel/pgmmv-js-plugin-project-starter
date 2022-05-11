@@ -34,7 +34,15 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: ['source-map-loader'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            parserOpts: {
+              allowReturnOutsideFunction: true
+            }
+          }
+        },
         include: srcPath,
         exclude: /node_modules/
       },
